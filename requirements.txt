@@ -1,0 +1,3 @@
+tfaip==1.1.0
+Levenshtein
+opencv-python-headless
