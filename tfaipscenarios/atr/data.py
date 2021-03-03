@@ -1,8 +1,10 @@
 from typing import Dict
 
 import tensorflow as tf
+from tfaip.base import INPUT_PROCESSOR
 from tfaip.base.data.data import DataBase
 
+from tfaipscenarios.atr.datapipeline.decoderprocessor import DecoderProcessorParams
 from tfaipscenarios.atr.datapipeline.loadprocessor import LoadProcessorParams
 from tfaipscenarios.atr.datapipeline.prepareprocessor import PrepareProcessorParams
 from tfaipscenarios.atr.datapipeline.scale_to_height_processor import ScaleToHeightProcessorParams
@@ -17,6 +19,10 @@ class ATRData(DataBase[ATRDataParams]):
             LoadProcessorParams(),
             ScaleToHeightProcessorParams(),
             PrepareProcessorParams(),
+        ]
+        p.post_proc.run_parallel = False
+        p.post_proc.processors = [
+            DecoderProcessorParams(),
         ]
         return p
 

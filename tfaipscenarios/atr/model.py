@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Dict, List, TYPE_CHECKING, Any
+from typing import Dict, List, TYPE_CHECKING, Any, Tuple
 
 import Levenshtein
 import tensorflow as tf
@@ -24,6 +24,9 @@ class ATRModelParams(ModelBaseParams):
 
 
 class ATRModel(ModelBase[ATRModelParams]):
+    def _best_logging_settings(self) -> Tuple[str, str]:
+        return "min", "CER"
+
     def create_graph(self, params: TMP) -> 'GraphBase':
         from tfaipscenarios.atr.graphs import ATRGraph
         return ATRGraph(params)
@@ -43,8 +46,9 @@ class ATRModel(ModelBase[ATRModelParams]):
 
     def _extended_metric(self, inputs: Dict[str, tf.Tensor], outputs: Dict[str, tf.Tensor]) -> Dict[str, tf.Tensor]:
         def create_cer(decoded, targets, targets_length):
-            greedy_decoded = tf.sparse.from_dense(decoded)
-            sparse_targets = tf.cast(tf.keras.backend.ctc_label_dense_to_sparse(targets, tf.cast(
+            # -1 is padding value which is expected to be 0, so shift all values by + 1
+            greedy_decoded = tf.sparse.from_dense(decoded + 1)
+            sparse_targets = tf.cast(tf.keras.backend.ctc_label_dense_to_sparse(targets + 1, tf.cast(
                 tf.keras.backend.flatten(targets_length), dtype='int32')), 'int32')
             return tf.edit_distance(tf.cast(greedy_decoded, tf.int32), sparse_targets, normalize=True)
 

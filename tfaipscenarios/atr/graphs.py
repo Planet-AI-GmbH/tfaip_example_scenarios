@@ -8,8 +8,8 @@ from tfaipscenarios.atr.params import Keys
 
 
 class ATRGraph(GraphBase[ATRModelParams]):
-    def __init__(self, params: ATRModelParams):
-        super(ATRGraph, self).__init__(params)
+    def __init__(self, params: ATRModelParams, **kwargs):
+        super(ATRGraph, self).__init__(params, **kwargs)
 
         self.conv_layers = [keras.layers.Conv2D(filters, kernel_size=[2, 2], padding='same') for filters in self._params.conv_filters]
         self.pool_layers = [keras.layers.MaxPool2D(pool_size=[2, 2], strides=[2, 2], padding='same') for _ in self._params.conv_filters]

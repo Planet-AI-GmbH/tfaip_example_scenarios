@@ -27,5 +27,5 @@ class ATRScenario(ScenarioBase[ATRData, ATRModel, ATRScenarioParams, ATRTrainerP
         p.gen.val.image_files = [os.path.join(default_data_dir, 'train', '*.png')]
         p.gen.setup.train.batch_size = 5
         p.gen.setup.val.batch_size = 5
-        p.samples_per_epoch = 128
+        p.samples_per_epoch = 1024
         return p
