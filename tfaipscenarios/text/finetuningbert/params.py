@@ -10,9 +10,9 @@ this_dir = os.path.dirname(os.path.realpath(__file__))
 class Keys:
     InputSentence1 = 'sentence1'
     InputSentence2 = 'sentence2'
-    InputWordIds = 'input_word_ids'
-    InputMask = 'input_mask'
-    InputTypeIds = 'input_type_ids'
+    InputWordIds = 'input_ids'
+    InputMask = 'attention_mask'
+    InputTypeIds = 'token_type_ids'
     Target = 'label'
     OutputLogits = 'logits'
     OutputSoftmax = 'softmax'

@@ -17,7 +17,7 @@ from tfaipscenarios.text.finetuningbert.params import FTBertDataParams
 class FTBertScenarioParams(ScenarioBaseParams[FTBertDataParams, FTBertModelParams]):
     def __post_init__(self):
         for p in self.data.pre_proc.processors_of_type(TokenizerProcessorParams):
-            p.gs_folder_bert = self.model.gs_folder_bert
+            p.model_name = self.model.model_name
 
 
 class FTBertScenario(ScenarioBase[FTBertData, FTBertModel, FTBertScenarioParams, GlueTrainerPipelineParams]):

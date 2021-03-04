@@ -14,7 +14,7 @@ from tfaipscenarios.text.finetuningbert.params import Keys
 @pai_dataclass
 @dataclass
 class FTBertModelParams(ModelBaseParams):
-    gs_folder_bert: str = "gs://cloud-tpu-checkpoints/bert/keras_bert/uncased_L-12_H-768_A-12"
+    model_name: str = "albert-base-v2"
 
 
 class FTBertModel(ModelBase[FTBertModelParams]):

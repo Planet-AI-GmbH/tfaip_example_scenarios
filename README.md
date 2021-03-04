@@ -13,3 +13,4 @@ The examples orientate at the [tutorials of Tensorflow](https://www.tensorflow.o
 ## List of Scenarios
 * [Image Classification:](tfaipscenarios/imageclassification) Image classification of flowers of five classes (corresponding Tensorflow tutorial is available [here](https://www.tensorflow.org/tutorials/images/classification))
 * [ATR:](tfaipscenarios/atr) Line-based Automatic Text Recognition
+* [Text/Fine-tuning BERT:](tfaipscenarios/text/finetuningbert) Fine-tuning of BERT on the task that decides whether two sentences are semantically equivalent.

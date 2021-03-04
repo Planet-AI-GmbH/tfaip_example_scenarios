@@ -31,7 +31,7 @@ class GlueDataGenerator(DataGenerator[GlueGeneratorParams]):
 
     def generate(self) -> Iterable[Sample]:
         def to_sample(d: dict) -> Sample:
-            return Sample(inputs={Keys.InputSentence1: d['sentence1'], Keys.InputSentence2: d['sentence2']},
+            return Sample(inputs={Keys.InputSentence1: d['sentence1'].decode('utf-8'), Keys.InputSentence2: d['sentence2'].decode('utf-8')},
                           targets={Keys.Target: [d['label']]},
                           meta={'index': d['idx']})
 

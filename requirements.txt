@@ -1,3 +1,4 @@
 tfaip==1.1.0
+transformers
 Levenshtein
 opencv-python-headless
