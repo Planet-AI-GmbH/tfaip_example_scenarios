@@ -2,8 +2,10 @@
 
 The ATR-Scenario is an example showing how to implement a line-based ATR-engine.
 It provides a CNN/LSTM-network architecture which is trained with the CTC-algorithm.
-This tutorial shows only the fundamentals and does not include required algorithms for document analysis in general
-which are part of a real OCR/Document-Analysis engine.
+This tutorial shows only the fundamentals which is why the results are sobering.
+Furthermore the code does not include required algorithms for document analysis in general.
+
+Planet AI GmbH offers an intelligent [Document Analysis Suite (IDA)](https://planet-ai.de/applications/document-analysis/) which is able to read and even understand a broad spectrum of documents from ancient hand-written documents to modern machine-generated ones.
 
 ## Run
 To run the training of this scenario execute (in the cloned dir)
@@ -25,6 +27,3 @@ Note, the prediction will only print the raw output of the network.
 
 ## Data
 The [working dir](workingdir) provides some example lines of the UW3 dataset which are loaded by default
-
-## References
-* Planet AI GmbH offers an intelligent [Document Analysis Suite (IDA)](https://planet-ai.de/applications/document-analysis/) which is able to read and even understand a broad spectrum of documents from ancient hand-written documents to modern machine-generated ones.
